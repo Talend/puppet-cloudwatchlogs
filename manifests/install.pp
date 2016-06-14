@@ -10,7 +10,7 @@ class cloudwatchlogs::install {
     }
     /^(Ubuntu|CentOS|RedHat)$/: {
 
-      if ! defined(Package['wget']) {
+      unless defined(Package['wget']) {
         package { 'wget':
           ensure => 'present',
         }
@@ -20,6 +20,7 @@ class cloudwatchlogs::install {
         path    => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
         command => 'wget -O /usr/local/src/awslogs-agent-setup.py https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py',
         unless  => '[ -e /usr/local/src/awslogs-agent-setup.py ]',
+        require => Package['wget']
       }
 
       # TODO: This is a mess but the installer requires an exiting /etc/awslogs/awslogs.conf
