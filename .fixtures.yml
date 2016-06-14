@@ -1,0 +1,6 @@
+fixtures:
+  symlinks:
+    cloudwatchlogs: '#{source_dir}'
+  forge_modules:
+    concat: "puppetlabs/concat"
+    stdlib: "puppetlabs/stdlib"

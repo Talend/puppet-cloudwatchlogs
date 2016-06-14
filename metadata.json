@@ -1,0 +1,15 @@
+{
+  "name": "talend/cloudwatchlogs",
+  "version": "0.1.0",
+  "author": "talend",
+  "summary": "Puppet module to provision cloudwatchlogs",
+  "license": "MIT",
+  "source": "https://github.com/Talend/puppet-cloudwatchlogs",
+  "project_page": "https://github.com/Talend/puppet-cloudwatchlogs",
+  "issues_url": "https://github.com/Talend/puppet-cloudwatchlogs/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
