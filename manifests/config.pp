@@ -4,23 +4,12 @@ class cloudwatchlogs::config (
   $region     = $::cloudwatchlogs::region,
 
 ){
-  case $::operatingsystem {
-    /^(Ubuntu|CentOS|RedHat)$/: {
 
-      $state_dirs = ['/var/awslogs','/var/awslogs/etc'  ]
-      file { $state_dirs:
-        ensure => 'directory',
-      }
-
-      # this is autogegnerated an throws an exception
-      # file { '/var/awslogs/etc/awslogs.conf':
-      #   ensure => 'link',
-      #   target => '/etc/awslogs/awslogs.conf',
-      # }
-    }
-    default: {}
+  $state_dirs = ['/var/awslogs','/var/awslogs/etc'  ]
+  file { $state_dirs:
+    ensure => 'directory',
   }
-
+  
   file { '/etc/awslogs':
     ensure => 'directory',
     owner  => 'root',
