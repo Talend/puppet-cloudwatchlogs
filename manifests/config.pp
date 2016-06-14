@@ -12,10 +12,11 @@ class cloudwatchlogs::config (
         ensure => 'directory',
       }
 
-      file { '/var/awslogs/etc/awslogs.conf':
-        ensure => 'link',
-        target => '/etc/awslogs/awslogs.conf',
-      }
+      # this is autogegnerated an throws an exception
+      # file { '/var/awslogs/etc/awslogs.conf':
+      #   ensure => 'link',
+      #   target => '/etc/awslogs/awslogs.conf',
+      # }
     }
     default: {}
   }
