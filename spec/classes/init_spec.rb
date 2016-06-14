@@ -1,11 +1,17 @@
 require 'spec_helper'
 describe 'cloudwatchlogs' do
+  
+  
+  
   context 'default parameters on Amazon Linux' do
     let (:facts) {{
       :operatingsystem => 'Amazon',
       :concat_basedir => '/var/lib/puppet/concat',
 
     }}
+
+    it { should compile }
+
     it {
       should create_class('cloudwatchlogs')
       should contain_package('awslogs').with_ensure('present')
@@ -20,19 +26,22 @@ describe 'cloudwatchlogs' do
       should contain_service('awslogs').with({
         'ensure'     => 'running',
         'enable'     => 'true',
-        'hasrestart' => 'true',
-        'hasstatus'  => 'true',
       })
     }
   end
-  context 'only region on Ubuntu' do
+  
+  
+  context 'only region on CentOS' do
     let (:params) {{
       :region => 'eu-west-1',
     }}
     let (:facts) {{
-      :operatingsystem => 'Ubuntu',
+      :operatingsystem => 'CentOS',
       :concat_basedir => '/var/lib/puppet/concat',
     }}
+
+    it { should compile }
+
     it {
       should contain_package('wget').with_ensure('present')
       should contain_exec('cloudwatchlogs-wget').with({
@@ -69,8 +78,6 @@ describe 'cloudwatchlogs' do
       should contain_service('awslogs').with({
         'ensure'     => 'running',
         'enable'     => 'true',
-        'hasrestart' => 'true',
-        'hasstatus'  => 'true',
       })
     }
   end
