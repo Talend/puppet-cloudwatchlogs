@@ -15,3 +15,7 @@ HOSTS:
     roles:
       - default
       - base
+CONFIG:
+  type: foss
+  log_level: verbose
+  masterless: true
