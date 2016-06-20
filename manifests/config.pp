@@ -9,7 +9,7 @@ class cloudwatchlogs::config (
   file { $state_dirs:
     ensure => 'directory',
   }
-  
+
   file { '/etc/awslogs':
     ensure => 'directory',
     owner  => 'root',
