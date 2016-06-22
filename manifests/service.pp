@@ -1,12 +1,14 @@
 class cloudwatchlogs::service (
-
-  $region     = $::cloudwatchlogs::region,
-
+  $region = $cloudwatchlogs::region,
+  $ensure = $cloudwatchlogs::service_ensure
 ){
 
+  if $ensure == 'stopped' {
+    $_enable = false
+  } else {
+    $_enable = true
+  }
 
-  # TODO: This is a mess but the installer requires an exiting /etc/awslogs/awslogs.conf
-  # TODO: This will move to s3 later on like this -c s3://myawsbucket/my-config-file
   exec { 'cloudwatchlogs-install':
     path    => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
     command => "python /usr/local/src/awslogs-agent-setup.py -n -r ${region} -c /etc/awslogs/awslogs.conf",
@@ -16,8 +18,8 @@ class cloudwatchlogs::service (
   } ->
 
   service { 'awslogs':
-    ensure     => 'running',
-    enable     => true,
+    ensure => $ensure,
+    enable => $_enable,
   }
 
 }

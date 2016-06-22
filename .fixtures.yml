@@ -2,5 +2,6 @@ fixtures:
   symlinks:
     cloudwatchlogs: '#{source_dir}'
   forge_modules:
+    wget: "maestrodev/wget"
     concat: "puppetlabs/concat"
     stdlib: "puppetlabs/stdlib"

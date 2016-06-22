@@ -1,12 +1,10 @@
 define cloudwatchlogs::log (
-
   $path            = undef,
   $streamname      = '{instance_id}',
   $datetime_format = '%b %d %H:%M:%S',
-
 ){
 
-  include cloudwatchlogs
+  include ::cloudwatchlogs
 
   if $path == undef {
     $log_path = $name

@@ -10,6 +10,10 @@ shared_examples 'cloudwatchlogs::running' do
     its(:content) { should_not match /ERROR/ }
   end
 
+  describe service('awslogs') do
+    it { should be_running }
+  end
+
 end
 
 
