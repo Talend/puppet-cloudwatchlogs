@@ -8,8 +8,8 @@
   "project_page": "https://github.com/Talend/puppet-cloudwatchlogs",
   "issues_url": "https://github.com/Talend/puppet-cloudwatchlogs/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
-  ],
-  "data_provider": null
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0 < 5.0.0"},
+    {"name":"puppetlabs-concat", "version_requirement": "2.x"},
+    {"name":"maestrodev-wget", "version_requirement": "1.x"}
+  ]
 }
-
