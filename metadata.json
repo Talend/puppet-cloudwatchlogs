@@ -1,5 +1,5 @@
 {
-  "name": "talend/cloudwatchlogs",
+  "name": "talend-cloudwatchlogs",
   "version": "0.1.0",
   "author": "talend",
   "summary": "Puppet module to provision cloudwatchlogs",
