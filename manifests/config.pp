@@ -32,4 +32,5 @@ class cloudwatchlogs::config (
     content => template('cloudwatchlogs/awslogs_header.erb'),
     order   => '00',
   }
+
 }

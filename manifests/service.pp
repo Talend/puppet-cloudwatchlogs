@@ -1,6 +1,8 @@
 class cloudwatchlogs::service (
+
   $region = $cloudwatchlogs::region,
-  $ensure = $cloudwatchlogs::service_ensure
+  $ensure = $cloudwatchlogs::service_ensure,
+
 ){
 
   if $ensure == 'stopped' {

@@ -5,4 +5,5 @@ class cloudwatchlogs::install {
     destination => '/usr/local/src/',
     verbose     => false,
   }
+
 }
