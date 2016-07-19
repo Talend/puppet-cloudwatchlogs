@@ -1,12 +1,21 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['>= 3.3']
-gem 'puppet', puppetversion
-gem 'puppetlabs_spec_helper', '>= 0.1.0'
-gem 'beaker-puppet_install_helper'
-gem 'puppet-lint', '>= 0.3.2'
-gem 'facter', '>= 1.7.0'
-gem 'metadata-json-lint'
-gem 'beaker'
-gem 'beaker-rspec'
-gem 'rspec-retry'
+gem 'puppet', '~> 3.8'
+gem 'rake'
+
+group :test do
+  gem 'metadata-json-lint'
+  gem 'puppetlabs_spec_helper'
+end
+
+group :development do
+  gem 'vagrant-wrapper'
+  gem 'kitchen-vagrant'
+end
+
+group :system_tests do
+  gem 'librarian-puppet'
+  gem 'test-kitchen'
+  gem 'kitchen-puppet'
+  gem 'kitchen-sync'
+end

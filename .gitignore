@@ -1,6 +1,12 @@
-.bundle/
-.vagrant/
-Gemfile.lock
-log/
 vendor/
-junit/
+.bundle/
+.idea/
+.reviewboardrc
+log
+.vagrant
+spec/fixtures
+.librarian/
+.kitchen/
+.kitchen.local.yml
+.tmp/
+modules/

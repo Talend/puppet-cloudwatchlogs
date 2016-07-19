@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  manifests_path: test/integration
+  ignore_spec_fixtures: true
+  custom_facts:
+    aws_access_key_id: <%= %x(grep aws_access_key_id ~/.aws/credentials | awk -F= '{print $2}' | tr -d ' ') %>
+    aws_secret_access_key: <%= %x(grep aws_secret_access_key ~/.aws/credentials | awk -F= '{print $2}' | tr -d ' ') %>
+
+transport:
+  name: sftp
+
+platforms:
+  - name: centos-7.2
+
+suites:
+  - name: default
+    provisioner:
+      manifest: default/init.pp
