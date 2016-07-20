@@ -8,6 +8,6 @@ FORGE
 
 DEPENDENCIES
   maestrodev-wget (~> 1.0)
-  puppetlabs-concat (~> 2.0)
+  puppetlabs-concat (< 3.0.0)
   puppetlabs-stdlib (< 5.0.0, >= 1.0.0)
 
