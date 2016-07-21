@@ -98,6 +98,8 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-puppet (2.4.0)
       rspec
+    rspec-retry (0.4.5)
+      rspec-core
     rspec-support (3.5.0)
     rspec_junit_formatter (0.2.3)
       builder (< 4)
@@ -113,7 +115,7 @@ GEM
       specinfra (~> 2.53)
     sfl (2.2)
     spdx-licenses (1.1.0)
-    specinfra (2.60.0)
+    specinfra (2.60.1)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
@@ -143,6 +145,7 @@ DEPENDENCIES
   puppet (~> 3.8)
   puppetlabs_spec_helper
   rake
+  rspec-retry
   rspec_junit_formatter
   serverspec
   test-kitchen

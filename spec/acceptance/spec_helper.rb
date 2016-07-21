@@ -1,4 +1,5 @@
 require 'serverspec'
+require 'rspec/retry'
 
 RSpec.configure do |config|
   config.add_formatter('RspecJunitFormatter', "build/junit/#{ENV['KITCHEN_SUITE']}.xml")
@@ -11,4 +12,5 @@ RSpec.configure do |config|
     :keys => ENV['KITCHEN_SSH_KEY']
   set :backend, :ssh
   set :request_pty, true
+  set :verbose_retry, true
 end

@@ -21,5 +21,6 @@ group :system_tests do
   gem 'kitchen-verifier-serverspec'
   gem 'net-ssh'
   gem 'serverspec'
+  gem 'rspec-retry'
   gem 'rspec_junit_formatter'
 end
