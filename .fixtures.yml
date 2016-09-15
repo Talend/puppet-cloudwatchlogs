@@ -5,3 +5,5 @@ fixtures:
     wget: "maestrodev/wget"
     concat: "puppetlabs/concat"
     stdlib: "puppetlabs/stdlib"
+    augeasproviders_shellvar: "herculesteam/augeasproviders_shellvar"
+    augeasproviders_code: "herculesteam/augeasproviders_core"

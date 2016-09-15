@@ -19,6 +19,13 @@ class cloudwatchlogs::service (
     require => Concat['/etc/awslogs/awslogs.conf'],
   } ->
 
+  shellvar {
+    'CONFIG_FILE':
+      ensure => present,
+      target => '/etc/init.d/awslogs',
+      value  => '/etc/awslogs/awslogs.conf'
+  } ~>
+
   service { 'awslogs':
     ensure => $ensure,
     enable => $_enable,

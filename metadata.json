@@ -1,6 +1,6 @@
 {
-  "name": "talend-cloudwatchlogs",
-  "version": "0.1.0",
+  "name": "talend/cloudwatchlogs",
+  "version": "0.2.0",
   "author": "talend",
   "summary": "Puppet module to provision cloudwatchlogs",
   "license": "MIT",
@@ -8,8 +8,11 @@
   "project_page": "https://github.com/Talend/puppet-cloudwatchlogs",
   "issues_url": "https://github.com/Talend/puppet-cloudwatchlogs/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0 < 5.0.0"},
-    {"name":"puppetlabs-concat", "version_requirement": "< 3.0.0"},
-    {"name":"maestrodev-wget", "version_requirement": "1.x"}
-  ]
+    {"name":"puppetlabs-stdlib","version_requirement": ">=1.0.0"},
+    {"name":"herculesteam-augeasproviders_shellvar","version_requirement": "2.x"},
+    {"name":"herculesteam-augeasproviders_core","version_requirement": "2.x"},
+    {"name": "maestrodev-wget", "version_requirement": "1.x" },
+    {"name": "puppetlabs-concat", "version_requirement": "2.2.0" }
+  ],
+  "data_provider": null
 }
