@@ -21,7 +21,7 @@ class cloudwatchlogs::service (
 
   exec { 'cloudwatchlogs-update-config':
     command => "python /usr/local/src/awslogs-agent-setup.py -n -r ${region} -c /etc/awslogs/awslogs.conf",
-    path    => $::path,
+    path    => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
     onlyif  => 'test /etc/awslogs/awslogs.conf -nt /var/awslogs/etc/awslogs.conf',
     require => Exec['cloudwatchlogs-install']
   } ~>
