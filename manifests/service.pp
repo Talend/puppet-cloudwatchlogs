@@ -17,13 +17,13 @@ class cloudwatchlogs::service (
     onlyif  => '[ -e /usr/local/src/awslogs-agent-setup.py ]',
     unless  => '[ -d /var/awslogs/bin ]',
     require => Concat['/etc/awslogs/awslogs.conf'],
-  } ->
+  }
 
-  shellvar {
-    'CONFIG_FILE':
-      ensure => present,
-      target => '/etc/init.d/awslogs',
-      value  => '/etc/awslogs/awslogs.conf'
+  exec { 'cloudwatchlogs-update-config':
+    command => "python /usr/local/src/awslogs-agent-setup.py -n -r ${region} -c /etc/awslogs/awslogs.conf",
+    path    => $::path,
+    onlyif  => 'test /etc/awslogs/awslogs.conf -nt /var/awslogs/etc/awslogs.conf',
+    require => Exec['cloudwatchlogs-install']
   } ~>
 
   service { 'awslogs':
