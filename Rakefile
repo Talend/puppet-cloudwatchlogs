@@ -3,10 +3,11 @@ require 'puppet-lint/tasks/puppet-lint'
 
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.ignore_paths = %w(
-  spec/**/*.pp
-  pkg/**/*.pp
-  vendor/**/*.pp
-  test/**/*.pp
+  spec/**/*
+  pkg/**/*
+  vendor/**/*
+  test/**/*
+  modules/**/*
 )
 
 desc 'Validate manifests, templates, and ruby files'

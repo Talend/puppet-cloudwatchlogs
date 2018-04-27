@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'cloudwatchlogs' do
-  
+
   context 'only region on CentOS' do
     let (:params) {{
       :region => 'eu-west-1',
@@ -37,10 +37,9 @@ describe 'cloudwatchlogs' do
       should contain_file('/var/awslogs').with_ensure('directory')
       should contain_file('/var/awslogs/etc').with_ensure('directory')
       should contain_exec('cloudwatchlogs-install').with({
-        'path'    => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
         'command' => 'python /usr/local/src/awslogs-agent-setup.py -n -r eu-west-1 -c /etc/awslogs/awslogs.conf',
-        'onlyif'  => '[ -e /usr/local/src/awslogs-agent-setup.py ]',
-        'unless'  => '[ -d /var/awslogs/bin ]',
+        'onlyif'  => '/bin/test -f /usr/local/src/awslogs-agent-setup.py',
+        'unless'  => '/bin/test -d /var/awslogs/bin',
       })
       should contain_service('awslogs').with({
         'ensure'     => 'running',
@@ -51,6 +50,11 @@ describe 'cloudwatchlogs' do
   context 'service stopped' do
     let (:params) {{
       :service_ensure => 'stopped',
+    }}
+    let (:facts) {{
+      :kernel => 'Linux',
+      :operatingsystem => 'CentOS',
+      :concat_basedir => '/var/lib/puppet/concat',
     }}
 
     it {
