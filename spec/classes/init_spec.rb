@@ -51,6 +51,11 @@ describe 'cloudwatchlogs' do
     let (:params) {{
       :service_ensure => 'stopped',
     }}
+    let (:facts) {{
+      :kernel => 'Linux',
+      :operatingsystem => 'CentOS',
+      :concat_basedir => '/var/lib/puppet/concat',
+    }}
 
     it {
       should contain_service('awslogs').with({

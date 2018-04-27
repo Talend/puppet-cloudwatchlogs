@@ -7,13 +7,7 @@ fixtures:
       ref: "1.7.3"
     concat:
       repo: "puppetlabs/concat"
-      ref: "2.2.0"
+      ref: "1.2.5"
     stdlib:
       repo: "puppetlabs/stdlib"
-      ref: "4.12.0"
-    augeasproviders_shellvar:
-      repo: "herculesteam/augeasproviders_shellvar"
-      ref: "2.2.3"
-    augeasproviders_core:
-      repo: "herculesteam/augeasproviders_core"
-      ref: "2.1.4"
+      ref: "4.25.0"
