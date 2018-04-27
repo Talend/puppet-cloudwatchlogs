@@ -2,8 +2,18 @@ fixtures:
   symlinks:
     cloudwatchlogs: '#{source_dir}'
   forge_modules:
-    wget: "maestrodev/wget"
-    concat: "puppetlabs/concat"
-    stdlib: "puppetlabs/stdlib"
-    augeasproviders_shellvar: "herculesteam/augeasproviders_shellvar"
-    augeasproviders_code: "herculesteam/augeasproviders_core"
+    wget:
+      repo: "maestrodev/wget"
+      ref: "1.7.3"
+    concat:
+      repo: "puppetlabs/concat"
+      ref: "2.2.0"
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref: "4.12.0"
+    augeasproviders_shellvar:
+      repo: "herculesteam/augeasproviders_shellvar"
+      ref: "2.2.3"
+    augeasproviders_core:
+      repo: "herculesteam/augeasproviders_core"
+      ref: "2.1.4"

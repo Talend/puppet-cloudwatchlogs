@@ -12,3 +12,5 @@ spec/fixtures
 modules/
 build/
 junit/
+.ruby-version
+*.swp

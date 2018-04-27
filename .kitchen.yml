@@ -1,20 +1,22 @@
 ---
 driver:
   name: vagrant
+  customize:
+    name: 'puppet-cloudwatchlogs'
 
 provisioner:
   name: puppet_apply
   manifests_path: examples
   ignore_spec_fixtures: true
   custom_facts:
-    aws_access_key_id: <%= %x(grep aws_access_key_id ~/.aws/credentials | awk -F= '{print $2}' | tr -d ' ') %>
-    aws_secret_access_key: <%= %x(grep aws_secret_access_key ~/.aws/credentials | awk -F= '{print $2}' | tr -d ' ') %>
+    aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID']%>
+    aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY']%>
 
 transport:
   name: sftp
 
 platforms:
-  - name: centos-7.2
+  - name: centos-7.4
 
 verifier:
   name: serverspec
